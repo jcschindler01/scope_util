@@ -18,10 +18,10 @@ def setup():
 def scope_init():
 	### initialize scope as visa object to initiate scope communication
 	### if not communicating, try unplug plug usb
-	lib_path = 'C:\\Windows\\SysWOW64\\visa32.dll'
+	lib_path = 'C:\\Windows\\SysWOW64\\visa32.dll' ### LIBRARY PATH
 	rm = visa.ResourceManager(lib_path)
 	reslist = rm.list_resources()
-	scope = rm.open_resource(u'USB0::0x0699::0x03A0::C040207::INSTR')
+	scope = rm.open_resource(u'USB0::0x0699::0x03A0::C040207::INSTR') ### SCOPE HARDWARE ID
 	IDN = scope.query('*IDN?')
 	message = 'Now communicating with\n%s'%IDN
 	print message
